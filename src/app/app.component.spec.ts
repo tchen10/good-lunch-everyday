@@ -1,6 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { MockComponent } from '../../spec/helpers/mock_component';
 
 fdescribe('AppComponent', () => {
   let fixture, element;
@@ -8,10 +9,13 @@ fdescribe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ],
-      schemas: [
-        NO_ERRORS_SCHEMA
+        AppComponent,
+        MockComponent({
+          selector: 'navbar'
+        }),
+        MockComponent({
+          selector: 'router-outlet'
+        })
       ]
     }).compileComponents();
 
