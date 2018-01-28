@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-restaurant.component.css']
 })
 export class CreateRestaurantComponent {
-  private newRestaurantForm: FormGroup;
+  newRestaurantForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private restaurantService: RestaurantService) { 
     this.createForm();
