@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent {
 
-  constructor(private authService: AuthService, private router: Router) {
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   loginWithGoogle(): void {

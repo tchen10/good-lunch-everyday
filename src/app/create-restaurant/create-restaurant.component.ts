@@ -14,13 +14,13 @@ export class CreateRestaurantComponent {
     this.createForm();
   }
 
-  private createForm() {
+  createForm() {
     this.newRestaurantForm = this.formBuilder.group({
       name: ['', Validators.required]
     });
   }
 
-  private submit() {
+  submit() {
     this.restaurantService.create(this.newRestaurantForm.value);
     this.createForm();
   }
