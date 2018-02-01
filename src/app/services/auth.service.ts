@@ -17,7 +17,7 @@ export class AuthService {
     return this.firebaseAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
-  logout(): Promise<any> {
+  logOut(): Promise<any> {
     return this.firebaseAuth.auth.signOut();
   }
 }

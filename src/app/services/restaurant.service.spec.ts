@@ -1,4 +1,4 @@
-import { MockAngularFireDatabase } from './../../../spec/helpers/mock_angular_fire_database';
+import { MockAngularFireDatabase } from './../../../spec_helpers/mock_angular_fire_database';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { RestaurantService } from './restaurant.service';

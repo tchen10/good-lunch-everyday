@@ -1,7 +1,11 @@
+import { MockRouter } from './../../spec_helpers/mock_router';
+import { MockAuthService } from './../../spec_helpers/mock_auth_service';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth.service';
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { MockComponent } from '../../spec/helpers/mock_component';
+import { MockComponent } from '../../spec_helpers/mock_component';
 
 describe('AppComponent', () => {
   let fixture, element;

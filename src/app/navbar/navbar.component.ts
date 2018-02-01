@@ -15,7 +15,7 @@ export class NavbarComponent {
     event.preventDefault();
     event.stopPropagation();
 
-    this.authService.logout().then(() => {
+    this.authService.logOut().then(() => {
       this.router.navigate(['/main']);
     });
   }
