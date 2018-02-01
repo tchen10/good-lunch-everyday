@@ -17,6 +17,7 @@ import { CreateRestaurantComponent } from './create-restaurant/create-restaurant
 import { RestaurantListComponent } from './restaurant-list/restaurant-list.component';
 import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { RestaurantListItemComponent } from './restaurant-list-item/restaurant-list-item.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CreateRestaurantComponent,
     RestaurantListComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    RestaurantListItemComponent
   ],
   imports: [
     BrowserModule,

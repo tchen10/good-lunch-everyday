@@ -6,7 +6,7 @@ import { FirebaseAuth } from '@firebase/auth-types';
 export class MockAngularFireAuth {
     app: FirebaseApp;
     idToken: Observable<string>;
-    authState = null;
+    authState = Observable.of(null);
     auth: MockAuth = new MockAuth();
 }
 

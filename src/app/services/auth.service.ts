@@ -8,9 +8,15 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AuthService {
   user: Observable<firebase.User>;
+  currentUser: firebase.User;
 
   constructor(private firebaseAuth: AngularFireAuth, private router: Router) {
     this.user = firebaseAuth.authState;
+    this.user.subscribe((user) => {
+      if (user) {
+        this.currentUser = user;
+      }
+    });
   }
 
   loginWithGoogle(): Promise<any> {

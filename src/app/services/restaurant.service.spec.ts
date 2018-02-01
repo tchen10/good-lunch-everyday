@@ -17,7 +17,7 @@ describe('RestaurantService', () => {
       service.all();
 
       expect(mockDb.path).toEqual(service.PATH);
-      expect(mockDb.dbList.valueChangesCalled).toBeTruthy();
+      expect(mockDb.dbList.snapshotChangesCalled).toBeTruthy();
     });
   });
 

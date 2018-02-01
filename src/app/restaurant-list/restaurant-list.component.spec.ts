@@ -4,6 +4,8 @@ import { RestaurantService } from './../services/restaurant.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RestaurantListComponent } from './restaurant-list.component';
+import { aRestaurant } from '../../../spec_helpers/builders/restaurant_builder';
+import { MockComponent } from '../../../spec_helpers/mock_component';
 
 describe('RestaurantListComponent', () => {
   let component: RestaurantListComponent;
@@ -14,7 +16,13 @@ describe('RestaurantListComponent', () => {
     mockRestaurantService = new RestaurantService(null);
 
     TestBed.configureTestingModule({
-      declarations: [ RestaurantListComponent ],
+      declarations: [ 
+        RestaurantListComponent,
+        MockComponent({
+          selector: 'restaurant-list-item',
+          inputs: ['restaurant']
+        })
+       ],
       providers: [
         { provide: RestaurantService, useValue: mockRestaurantService}
       ]
@@ -22,8 +30,8 @@ describe('RestaurantListComponent', () => {
     .compileComponents();
 
     spyOn(mockRestaurantService, 'all').and.returnValue(Observable.of([
-      new Restaurant('some restaurant'),
-      new Restaurant('other restaurant')
+      aRestaurant().build(),
+      aRestaurant().build()
     ]))
   }));
 
@@ -33,10 +41,9 @@ describe('RestaurantListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should display list of restaurants', () => {
-    const listItems = fixture.nativeElement.querySelectorAll('li') ;
+  it('should display list of restaurant list items', () => {
+    const listItems = fixture.nativeElement.querySelectorAll('restaurant-list-item') ;
     
     expect(listItems.length).toEqual(2);
-    expect(listItems[0].textContent).toEqual('some restaurant');
   });
 });

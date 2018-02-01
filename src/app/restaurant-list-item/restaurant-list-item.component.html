@@ -1,0 +1,27 @@
+<div class="list-group-item list-group-item-action flex-column align-items-start">
+  <div class="d-flex w-100 justify-content-between">
+    <div>
+      <h4 class="mb-1">{{restaurant.name}}</h4>
+      <small>A decent place to eat.</small>
+    </div>
+    <div>
+      <h5>Group rating:
+        <span class="badge badge-pill badge-info">{{ restaurant.totalRatingScore }}</span>
+      </h5>
+      <h5>Your rating:
+        <span *ngIf="editingScore; else scoreBadge">
+          <select [(ngModel)]="score" (ngModelChange)="updateScore()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </span>
+        <ng-template #scoreBadge>
+          <span class="badge badge-pill badge-default" (click)="showScoreDropdown()">{{ score }}</span>
+        </ng-template>
+      </h5>
+    </div>
+  </div>
+</div>

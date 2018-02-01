@@ -11,7 +11,13 @@ export class MockAngularFireDatabase {
 
 class MockFirebaseList {
     valueChangesCalled: boolean = false;
+    snapshotChangesCalled: boolean = false;
     values = [];
+
+    snapshotChanges() {
+        this.snapshotChangesCalled = true;
+        return [];
+    }
 
     valueChanges() {
         this.valueChangesCalled = true;

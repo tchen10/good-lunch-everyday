@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Observable';
-import { Restaurant } from './../models/restaurant';
+import { Restaurant, RatingScore } from './../models/restaurant';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 
@@ -10,10 +10,17 @@ export class RestaurantService {
   constructor(private db: AngularFireDatabase) { }
 
   all(): Observable<Restaurant[]> {
-    return this.db.list<Restaurant>(this.PATH).valueChanges();
+    return this.db.list(this.PATH).snapshotChanges()
+      .map(changes => {
+        return changes.map( c => Restaurant.createFrom({ key: c.payload.key, ...c.payload.val() }));
+      });
   }
 
   create(formValue: {name: string}): void {
-    this.db.list<Restaurant>(this.PATH).push(formValue);
+    this.db.list(this.PATH).push(formValue);
+  }
+
+  updateRating(key: string, score: RatingScore, userId: string): void {
+    this.db.list(`${this.PATH}/${key}/ratings`).push({ score: score, userId: userId});
   }
 }
