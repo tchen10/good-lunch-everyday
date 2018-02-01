@@ -21,6 +21,7 @@ export class RestaurantService {
   }
 
   updateRating(key: string, score: RatingScore, userUid: string): void {
+    this.db.object(`${this.PATH}/${key}/ratings/${userUid}`).remove();
     this.db.object(`${this.PATH}/${key}/ratings/${userUid}`).set(score);
   }
 }
