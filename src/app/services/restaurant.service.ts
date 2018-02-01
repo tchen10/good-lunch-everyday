@@ -20,7 +20,7 @@ export class RestaurantService {
     this.db.list(this.PATH).push(formValue);
   }
 
-  updateRating(key: string, score: RatingScore, userId: string): void {
-    this.db.list(`${this.PATH}/${key}/ratings`).push({ score: score, userId: userId});
+  updateRating(key: string, score: RatingScore, userUid: string): void {
+    this.db.object(`${this.PATH}/${key}/ratings/${userUid}`).set(score);
   }
 }

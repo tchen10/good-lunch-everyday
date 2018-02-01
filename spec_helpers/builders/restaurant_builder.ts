@@ -1,11 +1,11 @@
-import { Restaurant, Rating } from './../../src/app/models/restaurant';
+import { Restaurant, Ratings } from './../../src/app/models/restaurant';
 
 class RestaurantBuilder {
     private key = 'defaultKey';
     private name = 'defaultName';
-    private ratings = [];
+    private ratings = {};
 
-    withRatings(ratings: Rating[]): RestaurantBuilder {
+    withRatings(ratings: Ratings): RestaurantBuilder {
         this.ratings = ratings;
         return this;
     }

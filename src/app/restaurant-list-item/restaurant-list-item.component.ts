@@ -16,7 +16,7 @@ export class RestaurantListItemComponent implements OnInit {
   constructor(private restaurantService: RestaurantService, private auth: AuthService) { }
   
   ngOnInit(): void {
-    this.score = this.restaurant.findScoreByUserId(this.auth.currentUser.email);
+    this.score = this.restaurant.findScoreByUserId(this.auth.currentUser.uid);
   }
   
   showScoreDropdown(): void {
@@ -24,7 +24,7 @@ export class RestaurantListItemComponent implements OnInit {
   }
 
   updateScore() {
-    this.restaurantService.updateRating(this.restaurant.key, this.score, this.auth.currentUser.email);
+    this.restaurantService.updateRating(this.restaurant.key, this.score, this.auth.currentUser.uid);
     this.editingScore = false;
   }
 }
