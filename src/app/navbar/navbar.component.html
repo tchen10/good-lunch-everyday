@@ -1,3 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="/">GoodLunch</a>
+  <a class="navbar-brand" href="/">#GoodLunchEveryday</a>
+  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    <li *ngIf="authService.user | async" class="nav-item">
+      <a class="nav-link" href="#" (click)="logOut($event)">Logout</a>
+    </li>
+  </ul>
 </nav>

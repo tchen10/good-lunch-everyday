@@ -1,4 +1,6 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'navbar',
@@ -6,4 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+
+  constructor(public authService: AuthService, private router: Router) { }
+
+  logOut(event): void {
+    event.preventDefault();
+    event.stopPropagation();
+
+    this.authService.logout().then(() => {
+      this.router.navigate(['/main']);
+    });
+  }
 }

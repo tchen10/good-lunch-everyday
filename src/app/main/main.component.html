@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
   <div class="col-12">
     <h1>What's good for lunch today?</h1>
-  </div>  
+  </div>
 </div>
 
-<div class="row justify-content-center">
+<div *ngIf="authService.user | async; else logIn" class="row justify-content-center">
   <div class="col-4">
     <create-restaurant></create-restaurant>
   </div>
@@ -12,3 +12,11 @@
     <restaurant-list></restaurant-list>
   </div>
 </div>
+
+<ng-template #logIn>
+  <div class="row justify-content-center">
+    <div class="col-2">
+      <button class="btn btn-primary" id="google-sign-in-btn" (click)="loginWithGoogle()">Sign in with Google</button>
+    </div>
+  </div>
+</ng-template>

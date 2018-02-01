@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { appRoutes } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { RestaurantService } from './services/restaurant.service';
@@ -37,7 +38,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     NgbModule.forRoot()
   ],
   providers: [
-    RestaurantService
+    RestaurantService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
